@@ -1,37 +1,111 @@
-## Welcome to GitHub Pages
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS3 动画</title>
+	<style>
+		html, body {
+			height: 100%;
+		}
 
-You can use the [editor on GitHub](https://github.com/MeLee0/Limi.gitbub.com/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
+		body {
+			margin: 0;
+			padding: 0;
+			background-color: #0EA9B1;
+		}
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+		section {
+			height: 100%;
+			position: relative;
+			overflow: hidden;
+		}
 
-### Markdown
+		.bg1, .bg2 {
+			position: absolute;
+			left: 0;
+			/*bottom: 0;*/
+			width: 100%;
+		}
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+		.bg1 {
+			bottom: 20px;
+			height: 211px;
+			background-image: url(./1.png);
+			/*调用*/
+			animation: move 1s linear infinite;
+		}
 
-```markdown
-Syntax highlighted code block
+		.bg2 {
+			bottom: 0;
+			height: 235px;
+			background-image: url(./2.png);
+			animation: move 1s linear infinite;
+		}
 
-# Header 1
-## Header 2
-### Header 3
+		.sun {
+			width: 50px;
+			height: 50px;
+			background-color: #FFF;
+			border-radius: 25px;
+			position: absolute;
+			left: 200px;
+			top: 100px;
+		}
 
-- Bulleted
-- List
+		.sun::before, .sun::after {
+			content: '';
+			display: block;
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			background-color: #FFF;
+			border-radius: 25px;
+		}
 
-1. Numbered
-2. List
+		.sun::before {
+			animation: scale 1s infinite linear;
+		}
 
-**Bold** and _Italic_ and `Code` text
+		.sun::after {
+			animation: scale 1s 0.5s infinite linear;
+		}
 
-[Link](url) and ![Image](src)
-```
+		@keyframes scale {
+			0% {
+				/*transform: scale(1);
+				opacity: 1;*/
+			}
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+			100% {
+				transform: scale(2);
+				opacity: 0;
+			}
+		}
+		
+		/*动画序列*/
+		@keyframes move {
+			0% {
+				/**/
+			}
 
-### Jekyll Themes
+			50% {
+				bottom: -20px;
+			}
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/MeLee0/Limi.gitbub.com/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+			100% {
+				/**/
+			}
+		}
 
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+	</style>
+</head>
+<body>
+	<section>
+		<div class="sun"></div>
+		<div class="bg1"></div>
+		<div class="bg2"></div>
+	</section>
+</body>
+</html>
